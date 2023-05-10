@@ -1,0 +1,77 @@
+:root {
+  /* colors */
+  --clr-dark: 230, 35%, 7%;
+  --clr-light: 0, 0%, 100%;
+  --clr-white: 0, 0%, 100%;
+  --clr-blue: var(--clr-main-dark);
+
+  --clr-card-stroke: white;
+  --clr-card-bg: #7d137f;
+  --clr-card-bg-finish: #e83093;
+
+  --clr-odd: var(--clr-blue-500);
+  --clr-main-darker: var(--clr-blue-purple-them-3);
+  --clr-main-dark: #003b73;
+  --clr-main-light: #b8c7f2;
+  --clr-main-lighter: #4c9fcb;
+  --clr-accent-light: #b52fa2;
+  --clr-accent-light-hover: #841e74;
+  --clr-accent-dark: #635088;
+  --clr-accent-lighter: var(--clr-lime-green-light);
+
+  /* Color Theme Swatches in HSLA */
+  --clr-blue-purple-them-1: hsla(248, 49%, 43%, 1);
+  --clr-blue-purple-them-2: hsla(237, 96%, 12%, 1);
+  --clr-blue-purple-them-3: hsla(236, 94%, 7%, 1);
+  --clr-blue-purple-them-4: hsla(231, 42%, 56%, 1);
+  --clr-blue-purple-them-5: hsla(225, 96%, 22%, 1);
+
+  /* Color Theme Swatches in HSLA */
+  --clr-blue-500: hsla(212, 55%, 30%, 1);
+  --clr-blue-400: hsla(217, 55%, 43%, 1);
+  --clr-blue-300: hsla(199, 64%, 47%, 1);
+  --clr-cyan: hsla(174, 61%, 47%, 1);
+  --clr-lime-green: hsla(153, 77%, 55%, 1);
+  --clr-lime-green-light: hsla(153, 77%, 75%, 1);
+
+  /* Sizes */
+  --size-xs: 0.5rem;
+  --size-s: 1rem;
+  --size-m: 1.5rem;
+  --size-l: 2rem;
+  --size-xl: 3rem;
+  --size-xxl: 4rem;
+  --size-xxxl: 5rem;
+
+  /* font-sizes */
+  --fs-900: 7.375rem;
+  --fs-800: 5.25rem;
+  --fs-700: 3.5rem;
+  --fs-600: 2rem;
+  --fs-500: 1.75rem;
+  --fs-400: 1.5rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+
+  /* Margins */
+  --margin-xs: var(--size-xs);
+  --margin-s: var(--size-s);
+  --margin-m: var(--size-m);
+
+  /* font-families */
+  --ff-serif: "Bellefair", serif;
+  --ff-sans-cond: "Barlow Condensed", sans-serif;
+  --ff-sans-normal: "Barlow", sans-serif;
+
+  --ff-kalam: "Kalam", cursive;
+  --ff-mali: "Mali", cursive;
+  --ff-dosis: "Dosis", sans-serif;
+  --ff-poiret: "Poiret One", cursive;
+  --ff-comfortaa: "Comfortaa", cursive;
+  --ff-amatic: "Amatic SC", cursive;
+  --ff-gloria: "Gloria Hallelujah", cursive;
+  --ff-yantra: "Yantramanav", sans-serif;
+
+  /* shadows */
+  --shadow-btm: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}

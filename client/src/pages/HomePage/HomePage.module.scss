@@ -1,0 +1,23 @@
+.container {
+  background: url("/images/home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.containerSign {
+  background-image: url("/images/2872.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.login {
+  padding-left: 5vw;
+}
+
+.signup {
+  display: flex;
+  justify-content: end;
+  padding-right: 5vw;
+}

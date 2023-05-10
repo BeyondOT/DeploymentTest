@@ -1,0 +1,20 @@
+.creditsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  background: url("https://cdn.wallpapersafari.com/38/13/sQtEFD.png");
+  color: #ffffff;
+  overflow: hidden !important;
+
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "autorun": false,
+  "autokill": false,
+
+  "terminals": [
+    {
+      "name": "Server",
+      "description": "Launches the server terminal.",
+      "focus": false,
+      "icon": "server",
+      "color": "terminal.ansiGreen",
+      "command": "npm run fastDev",
+      "open": true,
+      "cwd": "server/"
+    },
+    {
+      "name": "Client",
+      "description": "Launches the client terminal.",
+      "focus": false,
+      "icon": "device-desktop",
+      "color": "terminal.ansiBlue",
+      "command": "npm start",
+      "open": true,
+      "cwd": "client/",
+      "split": "Server"
+    }
+  ]
+}

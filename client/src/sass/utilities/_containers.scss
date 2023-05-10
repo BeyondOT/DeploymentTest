@@ -1,0 +1,46 @@
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.section {
+  .header {
+    margin-bottom: 20px;
+
+    h2 {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    h2::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      bottom: 1px;
+      left: calc(50% - 70px);
+      background-color: hsla(var(--clr-light), 1);
+      width: 140px;
+      height: 1px;
+    }
+
+    h2::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 20px);
+      background-color: var(--clr-blue);
+      width: 40px;
+      height: 3px;
+    }
+  }
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

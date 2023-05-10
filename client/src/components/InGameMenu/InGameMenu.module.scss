@@ -1,0 +1,54 @@
+.menuButton {
+  cursor: pointer;
+}
+.menuModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -250%);
+  z-index: 999;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 4rem 3rem;
+  background-color: var(--clr-main-light);
+
+  transition: transform 500ms ease-out;
+
+  span {
+    font-size: 2rem;
+  }
+
+  button {
+    background-color: var(--clr-accent-light);
+    color: white;
+    &:hover {
+      background-color: var(--clr-accent-light-hover);
+    }
+  }
+}
+
+.open {
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.openOverlay {
+  background-color: rgba(235, 235, 235, 0.5);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+}

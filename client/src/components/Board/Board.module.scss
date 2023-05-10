@@ -1,0 +1,84 @@
+main {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+}
+.wrapper {
+  position: relative;
+  height: 90%;
+  width: 60%;
+  border-radius: 0.5rem;
+  z-index: 1;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -0.25rem;
+    background: linear-gradient(var(--angle), rgb(254, 1, 142), rgb(61, 135, 245));
+    border-radius: inherit;
+    z-index: -1;
+    animation: 8s rotate linear infinite;
+  }
+  &::after {
+    filter: blur(1.5rem);
+  }
+}
+.container {
+  --angle: 45deg;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(45deg, rgb(0, 24, 95), rgb(0, 14, 56), rgb(0, 24, 95));
+  z-index: 1;
+  border-radius: inherit;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-grow: 0;
+  cursor: pointer;
+  display: grid;
+  transition: scale 100ms ease-in;
+}
+
+.zoomOptions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  button {
+    display: flex;
+    align-items: center;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: white;
+    transition: color 100ms ease-in;
+    &:hover {
+      color: var(--clr-accent-light);
+    }
+  }
+}

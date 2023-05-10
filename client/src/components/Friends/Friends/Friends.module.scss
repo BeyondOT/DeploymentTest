@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Pacifico&display=swap');
+
+.sidebarNav{
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 58%);
+    // -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    top :0;
+    right: 0;
+    z-index: 1;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    // transform: right top 100ms ease-out;
+
+    .sidebarWrap{
+        width: 100%;
+        .NavIcon{
+            position: relative;
+            z-index: 2;
+            font-size: 2rem;
+            left: 76%;
+            cursor: pointer;
+            margin-bottom : -2rem;
+            padding-bottom: 1rem;
+            width: fit-content;
+    
+        }
+        .ChatIcon{
+            position: relative;
+            z-index: 99;
+            font-size: 2rem;
+            left: 5%;
+            bottom: 2.3rem;
+            cursor: pointer;
+    
+        }
+        .sideBartitle{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2rem;
+            padding: 1rem;
+            text-align: center;
+            width: 100%;
+            height: 50px;
+            border: none;
+            background-color: #3A109C;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 100ms ease-out;
+            padding-bottom: 45px;
+
+            &:hover {
+                background-color: #ff0000;
+            }
+        }
+
+        .friendscontainer{
+            overflow: auto; /* This makes the container scrollable */
+            max-height: 87vh;
+            margin-bottom: 10px;
+            
+        }
+
+        .addFriend{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #d11100;
+            color: white;
+            font-size: 1.2rem;
+            width: 100%;
+            cursor: pointer;
+            top: 93vh;
+            transition: transform 0.2s ease-in-out;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            font-family:'Oswald', sans-serif;
+            .addFriendButton {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 30px;
+                width: 30px;
+                margin-left: 10px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+        }
+        
+        .addFriend:hover {
+            transform: scale(0.98);
+        }
+    }
+
+}
+
+// .open {
+//     right: -100%;
+//     transition: right 1000ms ease-out;
+// }
+
+.ConnectionIcon{
+    position: relative;
+    z-index: 99;
+    font-size: 2rem;
+    left: 95%;
+    bottom: 2.4rem;
+    width: fit-content;
+    opacity: 0.9;
+}
+
+.connected{
+    visibility: hidden;
+}

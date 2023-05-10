@@ -1,0 +1,17 @@
+stages:
+  - setup
+  - test
+
+run-tests-ge:
+  stage: test
+  image: node
+  tags:
+    - node
+  before_script:
+    - cd server
+    - npm install
+  script:
+    - npm run test-ge
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+

@@ -1,0 +1,52 @@
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .box {
+    padding: 2rem;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    background-color: rgb(209, 234, 255);
+
+    border: 1px solid var(--clr-accent-light);
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .roundNumber {
+      font-weight: 800;
+      color: var(--clr-main-dark);
+    }
+
+    .roundWinner {
+      font-weight: 800;
+    }
+    .saboteur {
+      color: red;
+    }
+    .miner {
+      color: var(--clr-main-dark);
+    }
+    span {
+      font-size: 1.5rem;
+    }
+    button {
+      border: 1px solid transparent;
+      color: white;
+      transition: background-color 200ms ease-out;
+      background-color: var(--clr-accent-light-hover);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+
+      &:hover {
+        background-color: var(--clr-accent-light);
+      }
+    }
+  }
+}

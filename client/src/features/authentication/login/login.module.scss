@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Pacifico&display=swap");
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Oswald", sans-serif;
+  margin: 0;
+  padding: 0;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 30rem;
+    max-width: 90%;
+
+    h1 {
+      position: relative;
+      font-size: 4rem;
+      font-family: "Oswald", sans-serif;
+      color: #fff;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px hsl(248, 100%, 50%);
+      background-image: linear-gradient(120deg, #ff0000, #ff2323);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .inputContainer {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      width: 100%;
+
+      label {
+        margin-bottom: 0.5rem;
+        color: #333;
+        font-size: 1.2rem;
+      }
+
+      input {
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+        font-size: 1.2rem;
+        width: 100%;
+        transition: border-color 0.2s ease-in-out;
+
+        &:focus {
+          border-color: #3366ff;
+        }
+      }
+
+      label:last-of-type {
+        color: #ff0000;
+        font-size: 1rem;
+      }
+    }
+
+    span {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+
+      a {
+        color: #3366ff;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      background-color: #3366ff;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: #0047ab;
+      }
+    }
+  }
+  .linkToRegister {
+    cursor: pointer;
+    color: #0047ab;
+  }
+}

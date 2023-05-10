@@ -1,0 +1,158 @@
+.container {
+  background-color: #f9f9f900;
+  border-radius: 15px;
+  aspect-ratio: 46/70;
+
+  cursor: pointer;
+  transition-property: height, background-color, border-color;
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+
+  height: 100%;
+}
+
+.card {
+  position: relative;
+
+  .isRotated {
+    rotate: 180deg;
+  }
+
+  img {
+    width: 100%;
+    min-height: 100%;
+    transition: rotate 100ms ease-out;
+  }
+
+  .svgWrapper {
+    width: 100%;
+    height: 100%;
+    transition: rotate 100ms ease-out;
+    svg {
+      width: 100%;
+      min-height: 100%;
+    }
+  }
+}
+
+.selectedCard {
+  translate: 0% -10%;
+  box-shadow: 0px 10px 6px 2px rgba(168, 168, 168, 1);
+  -webkit-box-shadow: 0px 10px 6px 2px rgba(168, 168, 168, 1);
+  -moz-box-shadow: 0px 10px 6px 2px rgba(168, 168, 168, 1);
+}
+
+.hand {
+  &:hover {
+    translate: 0% -10%;
+  }
+}
+
+.Path {
+  .iconContainer {
+    position: absolute;
+    z-index: -1;
+    text-align: center;
+    top: 0;
+    left: 50%;
+    translate: -50% 0;
+    width: 100%;
+    min-height: 50%;
+    background-color: #7b7a7a;
+    border-radius: 10px;
+    opacity: 0;
+  }
+
+  .isHovered {
+    translate: -50% -30%;
+    opacity: 1;
+  }
+}
+
+.power {
+  svg {
+    width: 100%;
+    height: 100%;
+    text {
+      font-family: "Geostar", cursive;
+    }
+  }
+}
+
+.deck {
+  background-color: var(--clr-main-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discard {
+  background-color: var(--clr-main-lighter);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    font-size: 2rem;
+    transition: scale 200ms ease;
+  }
+  .trashOver {
+    scale: 1.4;
+  }
+}
+
+.finishWrapper {
+  perspective: 1000px;
+}
+
+.finishContainerRevealed {
+  transform: rotateY(180deg);
+}
+
+.finishContainer {
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.finishImageFront,
+.finishImageBack {
+  position: absolute;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.finishImageBack {
+  transform: rotateY(180deg);
+}
+
+.isReachable {
+  background-color: #dedede;
+  border: 1px solid grey;
+}
+
+.isOver {
+  background-color: red;
+}
+
+.isPlayable {
+  background-color: rgb(122, 201, 122);
+}
+
+.canDropBoardCell {
+  animation: glowBoardCell 800ms infinite;
+}
+.isOverBoardCell {
+  background-color: red;
+}
+
+@keyframes glowBoardCell {
+  0% {
+    opacity: 0.8; /* start with a small glow effect */
+  }
+  50% {
+    opacity: 0.5; /* increase the size and brightness of the glow */
+  }
+  100% {
+    opacity: 0.8; /* go back to the original state */
+  }
+}

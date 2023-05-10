@@ -1,0 +1,12 @@
+input {
+  border: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  &:focus {
+    border: none;
+    border: 1px solid black;
+  }
+  &::placeholder{
+    caret-color: transparent;
+  }
+}

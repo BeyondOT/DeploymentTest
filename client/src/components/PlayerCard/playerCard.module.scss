@@ -1,0 +1,114 @@
+.container {
+  border: 1px solid lightgrey;
+  padding: 0.75rem;
+
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 10;
+  background-color: var(--clr-accent-dark);
+}
+
+.top {
+  display: flex;
+  gap: 1rem;
+  justify-content: left;
+  align-items: center;
+  .infos {
+    display: flex;
+    flex-direction: column;
+    .role {
+      font-size: 12px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.avatar {
+  max-width: 40px;
+  border-radius: 50%;
+  background-color: lightgrey;
+}
+
+.handWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  span {
+    vertical-align: text-bottom;
+  }
+}
+
+.toolContainer {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--clr-main-lighter);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 50%;
+    height: 75%;
+  }
+}
+
+.playerTurn {
+  border: 1px solid var(--clr-accent-light);
+  box-shadow: 0px 10px 6px 2px var(--clr-accent-light);
+  -webkit-box-shadow: 0px 2px 6px 5px var(--clr-accent-light);
+  -moz-box-shadow: 0px 10px 6px 2px var(--clr-accent-light);
+}
+.glowPlayerCard {
+  animation: glowMalus 1s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.glowMalus {
+  animation: glowMalus 1s ease-in-out infinite;
+  cursor: pointer;
+  background-color: #ffc1c1;
+}
+
+@keyframes glowMalus {
+  0% {
+    box-shadow: 0 0 10px #fd3f3f; /* start with a small glow effect */
+  }
+  50% {
+    box-shadow: 0 0 15px #ff6d6d; /* increase the size and brightness of the glow */
+  }
+  100% {
+    box-shadow: 0 0 10px #fd3f3f; /* go back to the original state */
+  }
+}
+
+.glowBonus {
+  animation: glowBonus 1s ease-in-out infinite;
+  cursor: pointer;
+  background-color: #84ccf9;
+  opacity: 1 !important ;
+}
+
+@keyframes glowBonus {
+  0% {
+    box-shadow: 0 0 10px #57e6ff; /* start with a small glow effect */
+  }
+  50% {
+    box-shadow: 0 0 15px #00f7ff; /* increase the size and brightness of the glow */
+  }
+  100% {
+    box-shadow: 0 0 10px #57e6ff; /* go back to the original state */
+  }
+}
+
+.broken {
+  opacity: 0.3;
+}

@@ -1,0 +1,649 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Saboteur API Documentation",
+    "description": "API",
+    "version": "1.0.0"
+  },
+  "host": "localhost:5000" ,
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    },
+    {
+      "name": "Games",
+      "description": "API for games in the system"
+    },
+    {
+      "name": "auth",
+      "description": "API for authentification"
+    },
+    {
+      "name": "Msg",
+      "description": "API for handling messages"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "securityDefinitions": {
+      "cookie" : {
+      "type" : "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description":"cookie token  prefix, e.g. 'jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NGMxOTVkOGFkOGEzNGMzNjU3ZWQ2MSIsInBzZXVkbyI6ImJlY2hpcnRhbGViIiwiaWF0IjoxNjgyNzA4ODk2LCJleHAiOjE5NDE5MDg4OTZ9.YloHWcXeF0U5u3Al20rihInBBpKjqpPkcda-XHVaCVw'"
+    }
+  }
+  ,
+  
+    "paths": {
+      "/api/auth/login": {
+        "post": {
+          "tags": ["auth"],
+          "summary": "login user",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "user to login",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+              
+            },
+            "401": {
+              "description": "user does not exist"
+            },
+            "400": {
+              "description": " password dont match"
+            }
+          }
+        }
+
+      },
+      "/api/auth/register": {
+        "post": {
+          "tags": ["auth"],
+          "summary": "register user",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "user to register",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pseudo": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "401": {
+              "description": "user already exist"
+            }
+          }
+        }
+      },
+      "/api/auth/logout": {
+        "get": {
+          "tags": ["auth"],
+          "summary": "logout user",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/auth/jwtid": {
+        "get": {
+          "tags": ["auth"],
+          "summary": "get jwtid",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "description": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/game/getgames": {
+        "get": {
+          "tags": ["Games"],
+          "summary": "get all gmaes",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/game/getgame/{id}": {
+        "get": {
+          "tags": ["Games"],
+          "summary": "get game by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/game/addgame": {
+        "post": {
+          "tags": ["Games"],
+          "summary": "add new game",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "add game ",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_user": {
+                    "type": "string"
+                  },
+                  "en_cours": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+             
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/game/delgame/{id}": {
+        "patch": {
+          "tags": ["Games"],
+          "summary": "delete game by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/game/getgamesbyplayerid/{id}":
+      {
+        "get": {
+          "tags": ["Games"],
+          "summary": "get game by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/users/getUser/{id}":
+      {
+        "get": {
+          "security":[
+            {
+              "cookie":[]
+            }],
+          "tags": ["Users"],
+          "summary": "get user by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "error"
+            }
+          }
+        }
+      },
+      "/api/users/getFriends/{id}" :
+      {
+        "get": {
+          "security":[
+            {
+              "cookie":[]
+            }],
+          "tags": ["Users"],
+          "summary": "get friends of user by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/users/addfriend":
+      {
+        "patch": {
+          "security":[
+            {
+              "cookie":[]
+            }],
+          "tags": ["Users"],
+          "summary": "add new friend",
+          "parameters": [
+           {
+              "in": "body",
+              "name": "add friend ",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_user": {
+                    "type": "string"
+                  },
+                  "id_friend": {
+                    "type": "string"
+                  }
+                }
+              }
+           }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/users/removeFriend":
+      {
+        "patch": {
+          "security":[
+            {
+              "cookie":[]
+            }],
+          "tags": ["Users"],
+          "summary": "remove friend by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "description": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/msg/add":
+      {
+        "post": {
+          "tags": ["Msg"],
+          "summary": "add new msg",
+          "parameters":[
+            {
+              "in": "body",
+              "name": "add msg ",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "msg": {
+                    "type": "string"
+                  },
+                  "sender": {
+                    "type": "string"
+                  },
+                  "receiver": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400" : {
+              "description": "msg error"
+            }
+          }
+        }
+      },
+      "/api/msg/getAll":
+      {
+        "get": {
+          "tags": ["Msg"],
+          "summary": "get msg by id",
+          "parameters": [
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/msg/getSentById/{id}":
+      {
+        "get": {
+          "tags": ["Msg"],
+          "summary": "get msg by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      }, 
+      "/api/msg/getReceivedById/{id}":
+      {
+        "get": {
+          "tags": ["Msg"],
+          "summary": "get msg by id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/msg/getBetweenTwoUsers/{ida}/{idb}":
+      {
+        "get": {
+          "tags": ["Msg"],
+          "summary": "get msg by id",
+          "parameters": [
+            {
+              "name": "ida",
+              "in": "path",
+              "description": "sender",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "idb",
+              "in": "path",
+              "description": "receiver",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/msg/getBetweenTwoUsers/{ida}/{idb}":
+      {
+        "get": {
+          "tags": ["Msg"],
+          "summary": "get msg by id",
+          "parameters": [
+            {
+              "name": "ida",
+              "in": "path",
+              "description": "sender",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "idb",
+              "in": "path",
+              "description": "receiver",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      },
+      "/api/msg/remove":
+      {
+        "delete": {
+          "tags": ["Msg"],
+          "summary": "remove msg by id",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "msg to remove",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+            
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },"400": {
+              "description": "erro"
+            }
+          }
+        }
+      }
+
+    },
+    "definitions": {
+      "usersSchema": {
+        "required": ["pseudo","email","password"],
+        "properties": {
+          "pseudo": {
+            "type": "String",
+            "required": "true",
+            "minLength": "3",
+            "maxLength": "15",
+            "unique": "true",
+            "trim": "true"
+          },
+          "email": {
+            "type": "String",
+            "required": "true",
+            "validate": ["isEmail"],
+            "lowercase": "true",
+            "unique": "true",
+            "trim": "true"
+          },
+          "password": {
+            "type": "String",
+            "required": "true",
+            "max": "1024",
+            "minlength": "6"
+          },
+          "games": {
+            "type": "Number",
+            "default": "0"
+          },
+          "win": {
+            "type": "Number",
+            "default": "0"
+          },
+          "friends": {
+            "type": ["String"]
+          },
+          "gold": {
+            "type": "Number",
+            "default": "0"
+          }
+        }
+      },
+      "gamesSchema": {
+        "required": ["id_user", "en_cours", "date_debut"],
+        "properties": {
+          "id_user": {
+            "type": "String",
+            "required": "true"
+        },
+        "en_cours": {
+            "type": "Boolean",
+            "required": "true"
+        },
+        "duree": {
+            "type": "Number"  
+        },
+        "date_debut": {
+            "type": "Date",
+            "required": "true"
+        }
+        }
+      },
+      "msgSchema": {
+        "required": ["id_user", "id_game", "message"],
+        "properties": {
+          "id1": {
+            "type": "String",
+            "required": "true"
+         },
+         "id2": {
+            "type": "String",
+            "required": "true"
+         },
+        "msg": {
+          "type": "String",
+          "required": "true"
+         },
+         "date_heure": {
+          "type": "Date",
+          "required": "true"
+         }
+        }
+      }
+    }
+
+}

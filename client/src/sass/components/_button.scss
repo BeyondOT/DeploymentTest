@@ -1,0 +1,10 @@
+.button{
+  border-radius: 8px;
+  border: 1px solid grey;
+  padding: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+
+  &:hover{
+    background-color: grey;
+  }
+}
